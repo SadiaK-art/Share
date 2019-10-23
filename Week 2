@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+bool IsPrime(int x);
+int main()
+{
+    int n,k=0;
+    cin >> n;
+    int A[n];
+
+    for(int i=2; i<n; i++){
+        if(IsPrime(i)){
+            A[k]=i;
+            k++;
+        }
+    }
+
+    int counter = 0;
+    for(int i=0; i<k; i++){
+        for(int j=0;j<k;j++){
+            if((A[i]+A[j])== n  &&  i != j){
+                counter++;
+            }
+        }
+
+    }
+    cout << endl << counter;
+
+    return 0;
+}
+
+bool IsPrime(int x){
+    for(int i=2 ; i<=x/2 ; i++){
+        if(x%i==0)
+            return false;
+    }
+    return true;
+}
